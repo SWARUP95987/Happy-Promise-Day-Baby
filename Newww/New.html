@@ -1,186 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Promise Day 😘💝</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Promise Day! 💝</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ffafcc, #ffc8dd, #cdb4db);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
 
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(-45deg, #ff758f, #ff7eb3, #cdb4db, #a2d2ff);
-    background-size: 400% 400%;
-    animation: gradientMove 12s ease infinite;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    overflow-x: hidden;
-}
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
 
-.container {
-    max-width: 850px;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 25px;
-    padding: 50px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: #ff6b8b;
+            animation: float 4s ease-in-out infinite;
+        }
 
-h1 {
-    font-size: 2.8rem;
-    color: #d6336c;
-    margin-bottom: 15px;
-}
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
 
-.date {
-    color: #555;
-    margin-bottom: 30px;
-    font-weight: 500;
-}
+        h1 {
+            color: #ff6b8b;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-.message {
-    font-size: 1.3rem;
-    line-height: 1.8;
-    color: #333;
-    min-height: 100px;
-    margin-bottom: 30px;
-}
+        .date {
+            color: #a2d2ff;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
 
-.section {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s ease;
-}
+        .message-box {
+            background: linear-gradient(45deg, #ffc8dd, #ffafcc);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(255, 107, 139, 0.2);
+            position: relative;
+        }
 
-.section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+        .message {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            color: #590d22;
+            margin-bottom: 20px;
+            text-align: left;
+        }
 
-.promise-list {
-    text-align: left;
-    margin: 30px 0;
-    padding-left: 20px;
-}
+        .promise-list {
+            text-align: left;
+            margin: 25px 0;
+            padding-left: 20px;
+        }
 
-.promise-list li {
-    margin: 12px 0;
-    font-size: 1.1rem;
-    padding-left: 10px;
-}
+        .promise-list li {
+            margin: 12px 0;
+            font-size: 1.1rem;
+            color: #333;
+            position: relative;
+            padding-left: 10px;
+        }
 
-.promise-list li::before {
-    content: "?";
-    margin-right: 10px;
-    color: #ff4d6d;
-}
+        .promise-list li:before {
+            content: "💖";
+            position: absolute;
+            left: -25px;
+        }
 
-.love-meter {
-    margin: 30px 0;
-}
+        .love-meter {
+            background: #ffcad4;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
 
-.meter-bar {
-    width: 100%;
-    height: 25px;
-    background: #eee;
-    border-radius: 20px;
-    overflow: hidden;
-}
+        .meter-bar {
+            width: 100%;
+            height: 30px;
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 15px 0;
+            position: relative;
+        }
 
-.meter-fill {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, #ff4d6d, #ff758f);
-    border-radius: 20px;
-    transition: width 2s ease;
-}
+        .meter-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b8b, #ff8fab);
+            width: 100%;
+            border-radius: 15px;
+            animation: fillAnimation 2s ease-out forwards;
+        }
 
-button {
-    margin-top: 30px;
-    padding: 14px 40px;
-    border: none;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    background: linear-gradient(45deg, #ff4d6d, #ff758f);
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
+        @keyframes fillAnimation {
+            from { width: 0%; }
+            to { width: 100%; }
+        }
 
-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
+        .promise-btn {
+            background: linear-gradient(45deg, #ff6b8b, #ff8fab);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 139, 0.4);
+        }
 
-.hidden-message {
-    display: none;
-    margin-top: 25px;
-    font-size: 1.2rem;
-    color: #444;
-}
+        .promise-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 107, 139, 0.6);
+        }
 
-.signature {
-    margin-top: 40px;
-    font-style: italic;
-    font-size: 1.2rem;
-    color: #d6336c;
-}
+        .hidden-message {
+            display: none;
+            background: #a2d2ff;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            animation: fadeIn 1s ease;
+        }
 
-@media (max-width:600px){
-    .container { padding: 25px; }
-    h1 { font-size: 2rem; }
-}
-</style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .signature {
+            margin-top: 30px;
+            font-size: 1.3rem;
+            color: #ff6b8b;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 30px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            h1 { font-size: 2rem; }
+            .message { font-size: 1.1rem; }
+        }
+    </style>
 </head>
-
 <body>
-
-<div class="container">
-
-    <h1>Happy Promise Day, Arpi, my Baby 😘😘😘😘😘😘</h1>
-    <div class="date" id="date"></div>
-
-    <div class="message" id="typingText"></div>
-
-    <div class="section" id="promisesSection">
-        <h2>My Promises</h2>
-        <ul class="promise-list">
-            <li>I promise to grow into a man, you’ll always feel proud of.</li>
-            <li>I promise to protect your peace, not disturb it</li>
-            <li>I promise to support your dreams as fiercely as mine</li>
-            <li>I promise honesty — even when it’s hard</li>
-            <li>I promise to choose you, every single day</li>
-        </ul>
-
-        <div class="love-meter">
-            <h3>My Love for You</h3>
-            <div class="meter-bar">
-                <div class="meter-fill" id="meterFill"></div>
+    <div class="container">
+        <div class="hearts" id="hearts-container"></div>
+        
+        <h1>💝 Happy Promise Day, My Arpi, My Baby! 💝</h1>
+        <div class="date">February 11, 2026 · Wednesday</div>
+        
+        <div class="message-box">
+            <p class="message">
+                My dearest, on this special Promise Day, I want to renew my commitment to you. 
+                Every promise I make comes straight from my heart, and I intend to keep each one, 
+                today and always.
+            </p>
+            
+            <div class="love-meter">
+                <h3>My Love for You:</h3>
+                <div class="meter-bar">
+                    <div class="meter-fill"></div>
+                </div>
+                <p>100% and forever growing! 📈</p>
             </div>
+            
+            <h3>My Promises to You:</h3>
+            <ul class="promise-list">
+                <li>💝I promise to always be there for you, through thick and thin</li>
+                <li>💝I promise to listen to you with patience and understanding</li>
+                <li>💝I promise to support your dreams and celebrate your successes</li>
+                <li>💝I promise to be honest, faithful, and true to our love</li>
+                <li>💝I promise to make you smile, even on difficult days</li>
+                <li>💝I promise to keep falling in love with you every single day</li>
+            </ul>
         </div>
-    </div>
-
-    <button id="specialBtn">Click for My Forever Promise😘</button>
-
-    <div class="hidden-message" id="finalMessage">
-        I don't care about the world, amr legya tumi and only tumi. 
+        
+        <button class="promise-btn" id="promiseBtn">💖 Click for My Special Promise 💖</button>
+        
+        <div class="hidden-message" id="specialMessage">
+            <h3>My Eternal Promise:</h3>
+            <p>I don't care about the world, amr legya tumi and only tumi. 
         Hoite paro tumi amr 2nd Choise but, tumiei amr last choice.
         <br>
         Tumr logei jotoi jhogra kori, kintu tumrei shobche beshi bhalo pai ami.
@@ -192,50 +238,92 @@ button:hover {
         In the Every Phase of Life, Ami asi tumr legya and tumr legya amr Love Jibonei ko hoiboi nh. Im always your's
         and always there for you,
         <br>
-        I LOVE YOU MY ARPI, MY BABY 😘😘😘😘
+        I LOVE YOU MY ARPI, MY BABY 😘😘😘😘I don't care about the world, amr legya tumi and only tumi. 
+        Hoite paro tumi amr 2nd Choise but, tumiei amr last choice.
+        <br>
+        Tumr logei jotoi jhogra kori, kintu tumrei shobche beshi bhalo pai ami.
+        <br>
+        Tumi amr aita komunh ami. Kn jodi tumi amr toh amr bare bare koite lagbo nh.
+        <br>
+        Kintu ai PROMISE DAY te ekta promise toh amio korte chai je
+        <br>
+        In the Every Phase of Life, Ami asi tumr legya and tumr legya amr Love Jibonei ko hoiboi nh. Im always your's
+        and always there for you,
+        <br>
+        I LOVE YOU MY ARPI, MY BABY 😘😘😘😘 ❤️</p>
+        </div>
+        
+        <div class="signature">
+            With all my love, forever yours<br>
+            Swarup 💕
+        </div>
+        
+        <footer>
+            Made with ❤️ for the most amazing person in my life
+        </footer>
     </div>
 
-    <div class="signature">
-        Forever yours,<br>
-        Swarup
-    </div>
+    <script>
+        // Create floating hearts
+        const heartsContainer = document.getElementById('hearts-container');
+        for (let i = 0; i < 25; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '💖';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.top = Math.random() * 100 + '%';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+            heartsContainer.appendChild(heart);
+        }
 
-</div>
+        // Button click event
+        document.getElementById('promiseBtn').addEventListener('click', function() {
+            const message = document.getElementById('specialMessage');
+            if (message.style.display === 'block') {
+                message.style.display = 'none';
+                this.textContent = '💖 Click for My Special Promise 💖';
+            } else {
+                message.style.display = 'block';
+                this.textContent = '💖 My Promise to You Forever 💖';
+                
+                // Add more hearts when button is clicked
+                for (let i = 0; i < 10; i++) {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart';
+                    heart.innerHTML = '💝';
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.top = '100%';
+                    heart.style.animation = 'float 3s ease-in forwards';
+                    heartsContainer.appendChild(heart);
+                    
+                    // Remove heart after animation
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 3000);
+                }
+            }
+        });
 
-<script>
-// Dynamic Date
-const today = new Date();
-const options = { weekday:'long', year:'numeric', month:'long', day:'numeric' };
-document.getElementById("date").textContent = today.toLocaleDateString('en-US', options);
+        // Add some interactive hover effects to promises
+        const promises = document.querySelectorAll('.promise-list li');
+        promises.forEach(promise => {
+            promise.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(10px)';
+                this.style.transition = 'transform 0.3s ease';
+            });
+            promise.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0)';
+            });
+        });
 
-// Typing Effect
-const text = "Jodio ami Valentine Day te mani nh but still, On this Promise Day, I don’t just make words — I make commitments.Every promise here is intentional, thoughtful, and meant for a lifetime.";
-let i = 0;
-const typingElement = document.getElementById("typingText");
-
-function typeWriter() {
-    if (i < text.length) {
-        typingElement.innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, 35);
-    }
-}
-typeWriter();
-
-// Reveal section smoothly
-setTimeout(() => {
-    document.getElementById("promisesSection").classList.add("visible");
-    document.getElementById("meterFill").style.width = "100%";
-}, 2000);
-
-// Button click
-document.getElementById("specialBtn").addEventListener("click", function(){
-    const msg = document.getElementById("finalMessage");
-    msg.style.display = "block";
-    msg.classList.add("visible");
-});
-</script>
-
+        // Auto-scroll to message when page loads
+        window.addEventListener('load', () => {
+            document.querySelector('.message-box').scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        });
+    </script>
 </body>
 </html>
-
