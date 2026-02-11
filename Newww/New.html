@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Promise Day ??</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(-45deg, #ff758f, #ff7eb3, #cdb4db, #a2d2ff);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    max-width: 850px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 25px;
+    padding: 50px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 2.8rem;
+    color: #d6336c;
+    margin-bottom: 15px;
+}
+
+.date {
+    color: #555;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.message {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #333;
+    min-height: 100px;
+    margin-bottom: 30px;
+}
+
+.section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.promise-list {
+    text-align: left;
+    margin: 30px 0;
+    padding-left: 20px;
+}
+
+.promise-list li {
+    margin: 12px 0;
+    font-size: 1.1rem;
+    padding-left: 10px;
+}
+
+.promise-list li::before {
+    content: "?";
+    margin-right: 10px;
+    color: #ff4d6d;
+}
+
+.love-meter {
+    margin: 30px 0;
+}
+
+.meter-bar {
+    width: 100%;
+    height: 25px;
+    background: #eee;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.meter-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #ff4d6d, #ff758f);
+    border-radius: 20px;
+    transition: width 2s ease;
+}
+
+button {
+    margin-top: 30px;
+    padding: 14px 40px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    background: linear-gradient(45deg, #ff4d6d, #ff758f);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.hidden-message {
+    display: none;
+    margin-top: 25px;
+    font-size: 1.2rem;
+    color: #444;
+}
+
+.signature {
+    margin-top: 40px;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #d6336c;
+}
+
+@media (max-width:600px){
+    .container { padding: 25px; }
+    h1 { font-size: 2rem; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Happy Promise Day, Arpita ??</h1>
+    <div class="date" id="date"></div>
+
+    <div class="message" id="typingText"></div>
+
+    <div class="section" id="promisesSection">
+        <h2>My Promises</h2>
+        <ul class="promise-list">
+            <li>I promise to grow into a man you’ll always feel proud of</li>
+            <li>I promise to protect your peace, not disturb it</li>
+            <li>I promise to support your dreams as fiercely as mine</li>
+            <li>I promise honesty — even when it’s hard</li>
+            <li>I promise to choose you, every single day</li>
+        </ul>
+
+        <div class="love-meter">
+            <h3>My Love for You</h3>
+            <div class="meter-bar">
+                <div class="meter-fill" id="meterFill"></div>
+            </div>
+        </div>
+    </div>
+
+    <button id="specialBtn">Click for My Forever Promise</button>
+
+    <div class="hidden-message" id="finalMessage">
+        No matter how busy life gets, how intense ambitions become,  
+        or how challenging days turn…  
+        I choose you. Today. Tomorrow. Always.  
+        You are not just my love — you are my decision.
+    </div>
+
+    <div class="signature">
+        Forever yours,<br>
+        Swarup
+    </div>
+
+</div>
+
+<script>
+// Dynamic Date
+const today = new Date();
+const options = { weekday:'long', year:'numeric', month:'long', day:'numeric' };
+document.getElementById("date").textContent = today.toLocaleDateString('en-US', options);
+
+// Typing Effect
+const text = "On this Promise Day, I don’t just make words — I make commitments. Every promise here is intentional, thoughtful, and meant for a lifetime.";
+let i = 0;
+const typingElement = document.getElementById("typingText");
+
+function typeWriter() {
+    if (i < text.length) {
+        typingElement.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 35);
+    }
+}
+typeWriter();
+
+// Reveal section smoothly
+setTimeout(() => {
+    document.getElementById("promisesSection").classList.add("visible");
+    document.getElementById("meterFill").style.width = "100%";
+}, 2000);
+
+// Button click
+document.getElementById("specialBtn").addEventListener("click", function(){
+    const msg = document.getElementById("finalMessage");
+    msg.style.display = "block";
+    msg.classList.add("visible");
+});
+</script>
+
+</body>
+</html>
